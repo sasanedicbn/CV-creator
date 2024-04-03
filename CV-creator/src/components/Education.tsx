@@ -1,6 +1,8 @@
 import { useState } from "react";
 
 const Education = () => {
+  const [education, setEducation] = useState([{}])
+    
   
   return (
     <div className="container">
