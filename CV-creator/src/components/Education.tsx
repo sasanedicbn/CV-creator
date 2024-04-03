@@ -6,7 +6,9 @@ const Education = () => {
   function addExperience (){
    setEducation([...education, {}])
   }
- 
+  function deleteExperience(index) {
+   setEducation(education.filter((_,i) => i !== index))
+  }
   return (
     <div className="container">
      {education.map((education, index) => (
