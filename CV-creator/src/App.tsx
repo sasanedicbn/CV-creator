@@ -5,8 +5,8 @@ import Education from './components/Education'
 import Experience from './components/Experience'
 import Preview from './components/Preview'
 function App() {
-  return (
 
+  return (
     <div className='main-container'>
     <Header/>
     <PersonalInformation/>
