@@ -1,6 +1,27 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  background-color: rgb(185, 180, 180);
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.header{
+  background-color: rgb(66, 65, 65);
+  height: 80px;
+  color:#fff;
+  text-align: center;
+  font-size: 24px;
+  padding-top: 22px;
+  letter-spacing: 6px;
+  margin-bottom: 22px;
+}
 .container {
   max-width: 600px;
   margin: 0 auto;
+  background-color: #e6e4e4;
+  padding: 50px;
 }
 
 .form-title {
