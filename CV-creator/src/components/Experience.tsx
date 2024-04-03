@@ -3,7 +3,10 @@ import { useEffect, useState } from "react";
 const Experience = () => {
     const [experience, setExperience] = useState([{}])
     
-   
+   function addExperience (){
+    setExperience([...experience, {}])
+   }
+  
   
   return (
     <div className="container">
