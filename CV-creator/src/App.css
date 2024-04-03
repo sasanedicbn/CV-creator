@@ -66,7 +66,8 @@ label {
   background-color: #0056b3;
 }
 .delete-button,
-.add-button {
+.add-button,
+.preview-button{
   background-color: #007bff;
   color: #fff;
   border: none;
@@ -84,4 +85,7 @@ label {
 }
 .add-button:hover {
   background-color: #0056b3;
+}
+.preview-button{
+  background-color: rgb(29, 204, 29);
 }

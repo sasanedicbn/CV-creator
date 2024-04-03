@@ -25,10 +25,10 @@ const Experience = () => {
             <label htmlFor="to_date">To (dd/mm/yyyy):</label>
             <input type="text" id="to_date" name="to_date" className="form-input" />
           </div>
-          <button className="delete-button" onClick={onDelete}>Delete</button>
+          <button className="delete-button" >Delete</button>
         </div>
       </div>
-      <button className="add-button" onClick={onAdd}>Add Experience</button>
+      <button className="add-button" >Add Experience</button>
     </div>
   );
 };
