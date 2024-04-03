@@ -1,5 +1,5 @@
 
-const EducationComponent = () => {
+const Education = () => {
   return (
     <div className="container">
       <h2 className="form-title">Education</h2>
@@ -37,4 +37,4 @@ const EducationComponent = () => {
   );
 };
 
-export default EducationComponent;
+export default Education;
