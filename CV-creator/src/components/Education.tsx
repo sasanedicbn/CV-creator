@@ -3,7 +3,10 @@ import { useState } from "react";
 const Education = () => {
   const [education, setEducation] = useState([{}])
     
-  
+  function addExperience (){
+   setEducation([...education, {}])
+  }
+ 
   return (
     <div className="container">
      {education.map((education, index) => (
