@@ -4,16 +4,17 @@ import Header from './components/Header'
 import Education from './components/Education'
 import Experience from './components/Experience'
 import Preview from './components/Preview'
+import Wrapper from './components/Wrapper'
 function App() {
 
   return (
-    <div className='main-container'>
+    <Wrapper>
     <Header/>
     <PersonalInformation/>
     <Education/>
     <Experience/>
     <Preview/>
-    </div>
+    </Wrapper>
   )
 }
 
