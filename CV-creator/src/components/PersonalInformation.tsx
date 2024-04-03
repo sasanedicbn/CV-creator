@@ -2,7 +2,7 @@
 const PersonalInformation = () => {
   return (
     <div className="container">
-      <h2 className="form-title">Form</h2>
+      <h2 className="form-title">Personal Information</h2>
       <div className="form-group">
         <label htmlFor="first_name">First Name:</label>
         <input type="text" id="first_name" name="first_name" className="form-input" />
