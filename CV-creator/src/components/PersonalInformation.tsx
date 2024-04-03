@@ -33,7 +33,7 @@ const PersonalInformation = () => {
       </div>
       <div className="form-group">
         <label htmlFor="description">Description:</label>
-        <textarea id="description" name="description" className="form-textarea"></textarea>
+        <input type="text" id="title" name="title" className="form-input" />
       </div>
     </div>
   );
