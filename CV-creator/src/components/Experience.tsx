@@ -6,7 +6,9 @@ const Experience = () => {
    function addExperience (){
     setExperience([...experience, {}])
    }
-  
+   function deleteExperience(index) {
+    setExperience(experience.filter((_,i) => i !== index))
+   }
   
   return (
     <div className="container">
