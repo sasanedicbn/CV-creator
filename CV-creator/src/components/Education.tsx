@@ -25,7 +25,15 @@ const Education = () => {
    setEducation(education.filter((_,i) => i !== index))
   }
   
- 
+  function handleInputData(event, index, field){
+    const value = event.target.value
+    const updateEducation = [...education]
+    updateEducation[index][field] = value
+    setEducation(updateEducation)
+    console.log(education)
+  }
+
+  
   return (
     <div className="container">
      {education.map((education, index) => (
