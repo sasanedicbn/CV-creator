@@ -1,14 +1,31 @@
 import { useState } from "react";
 
 const Education = () => {
-  const [education, setEducation] = useState([{}])
+  const [education, setEducation] = useState([{
+    universityName: '',
+    city:'',
+    degree:'',
+    subject: '',
+    from: '',
+    to: '',
+  }])
+  
     
   function addExperience (){
-   setEducation([...education, {}])
+   setEducation([...education, {
+    universityName: '',
+    city:'',
+    degree:'',
+    subject: '',
+    from: '',
+    to: '',
+   }])
   }
   function deleteExperience(index) {
    setEducation(education.filter((_,i) => i !== index))
   }
+
+  
   return (
     <div className="container">
      {education.map((education, index) => (
@@ -18,7 +35,7 @@ const Education = () => {
          <div className="education-item">
            <div className="form-group">
              <label htmlFor="university_name">University Name:</label>
-             <input type="text" id="university_name" name="university_name" className="form-input" />
+             <input type="text" id="university_name" name="university_name"   className="form-input" />
            </div>
            <div className="form-group">
              <label htmlFor="city">City:</label>
