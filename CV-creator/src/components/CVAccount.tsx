@@ -2,6 +2,8 @@ const CVAccount = ({dataForAccount}) => {
     const {educationData, experienceData, personalInfo } = dataForAccount
     console.log(dataForAccount)
     return(
+        <>
+        <div className="overlay"></div>
         <div className="cv-account">
         <div className="personal-info">
           <h2>Personal Information</h2>
@@ -41,7 +43,12 @@ const CVAccount = ({dataForAccount}) => {
             </div>
           ))}
         </div>
+        <div>
+            <button className="custom-btn"> Go back </button>
+            <button className="custom-btn"> Print </button>
+        </div>
       </div>
+      </>
     )
 }
 export default CVAccount;
