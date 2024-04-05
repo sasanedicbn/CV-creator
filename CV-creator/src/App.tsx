@@ -9,7 +9,7 @@ import { useState } from 'react'
 function App() {
 const [educationData, setEducationData] = useState([])
 const [experienceData, setExperienceData] = useState([])
-
+const [personalnfo, setPersonalInfo] = useState()
 
 const handleEducationData = (data) => {
   setEducationData(data)
