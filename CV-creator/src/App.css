@@ -90,3 +90,69 @@ label {
 .preview-button{
   background-color: rgb(29, 204, 29);
 }
+/* CVAccount component */
+.cv-account {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.personal-info {
+  margin-bottom: 20px;
+}
+
+h2 {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+strong {
+  font-weight: bold;
+}
+
+.personal-info-content {
+  display: flex;
+  align-items: center;
+}
+
+.text-section {
+  flex: 1;
+}
+
+.photo-section {
+  margin-left: 20px; /* Dodajte potreban razmak između teksta i fotografije */
+}
+
+img {
+  max-width: 100px;
+  height: auto;
+  border-radius: 50%;
+}
+
+p {
+  margin: 5px 0;
+}
+
+.add-button, .delete-button, .preview-button {
+  padding: 8px 16px;
+  margin: 5px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: #4CAF50;
+  color: white;
+}
+
+.add-button:hover, .delete-button:hover, .preview-button:hover {
+  background-color: #45a049;
+}
+
+.delete-button {
+  background-color: #f44336;
+}
+
+.delete-button:hover {
+  background-color: #da190b;
+}
