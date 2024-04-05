@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const Education = () => {
+const Education = ({handleEducationData}) => {
   const [education, setEducation] = useState([{
     universityName: '',
     city:'',
@@ -30,14 +30,15 @@ const Education = () => {
     const updateEducation = [...education]
     updateEducation[index][field] = value
     setEducation(updateEducation)
-    console.log(education)
+
+    handleEducationData(updateEducation)
   }
 
   
   return (
     <div className="container">
      {education.map((education, index) => (
-      <div>
+      <div key={index}>
        <h2 className="form-title">Education</h2>
        <div className="education">
          <div className="education-item">
