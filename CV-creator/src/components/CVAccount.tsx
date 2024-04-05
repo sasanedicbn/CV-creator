@@ -1,4 +1,4 @@
-const CVAccount = ({dataForAccount}) => {
+const CVAccount = ({dataForAccount, removeAccountComponent}) => {
     const {educationData, experienceData, personalInfo } = dataForAccount
     console.log(dataForAccount)
     return(
@@ -43,8 +43,8 @@ const CVAccount = ({dataForAccount}) => {
             </div>
           ))}
         </div>
-        <div>
-            <button className="custom-btn"> Go back </button>
+        <div className="btn-container">
+            <button className="custom-btn" onClick={removeAccountComponent}> Go back </button>
             <button className="custom-btn"> Print </button>
         </div>
       </div>

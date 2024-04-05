@@ -4,7 +4,7 @@ import CVAccount from "./CVAccount";
 const Preview = ({experienceData, educationData, personalnfo}) => {
     const [showAccount, setShowAccount] = useState(false)
     
-    function showAccountCV(){
+    function showAccountComponent(){
         setShowAccount(!showAccount)
     }
     const dataForAccount = {
@@ -14,9 +14,9 @@ const Preview = ({experienceData, educationData, personalnfo}) => {
     }
     return(
         <div className="container">
-         <button className="preview-button" onClick={showAccountCV}>Preview</button>
+         <button className="preview-button" onClick={showAccountComponent}>Preview</button>
          <button className="delete-button" >Reset</button>
-         {showAccount && <CVAccount dataForAccount={dataForAccount}/>}
+         {showAccount && <CVAccount dataForAccount={dataForAccount} removeAccountComponent={showAccountComponent}/>}
         </div>
     )
 }
