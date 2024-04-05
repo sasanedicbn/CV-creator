@@ -10,9 +10,8 @@ function App() {
 const [educationData, setEducationData] = useState([])
 const [experienceData, setExperienceData] = useState([])
 const [personalnfo, setPersonalInfo] = useState({})
-console.log(educationData)
-console.log(experienceData)
-console.log(personalnfo)
+
+
 const handleEducationData = (data) => {
   setEducationData(data)
 }
@@ -28,7 +27,7 @@ const handlePersonInfo = (data) => {
     <PersonalInformation handlePersonInfo={handlePersonInfo}/>
     <Education handleEducationData={handleEducationData}/>
     <Experience handleExperienceData={handleExperienceData}/>
-    <Preview/>
+    <Preview  educationData={educationData} experienceData={experienceData} personalnfo={personalnfo} />
     </Wrapper>
   )
 }

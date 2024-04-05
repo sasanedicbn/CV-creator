@@ -20,7 +20,7 @@ const PersonalInformation = ({handlePersonInfo}) => {
     useEffect(() => {
         handlePersonInfo(personalInfo)
     }, [personalInfo])
-
+    
 
   return (
     <div className="container">
