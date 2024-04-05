@@ -9,20 +9,23 @@ import { useState } from 'react'
 function App() {
 const [educationData, setEducationData] = useState([])
 const [experienceData, setExperienceData] = useState([])
-const [personalnfo, setPersonalInfo] = useState()
-
+const [personalnfo, setPersonalInfo] = useState({})
+console.log(educationData)
+console.log(experienceData)
+console.log(personalnfo)
 const handleEducationData = (data) => {
   setEducationData(data)
 }
 const handleExperienceData = (data) => {
-  setEducationData(data)
-  console.log(data)
-
+  setExperienceData(data)
+}
+const handlePersonInfo = (data) => {
+  setPersonalInfo(data)
 }
   return (
     <Wrapper>
     <Header/>
-    <PersonalInformation/>
+    <PersonalInformation handlePersonInfo={handlePersonInfo}/>
     <Education handleEducationData={handleEducationData}/>
     <Experience handleExperienceData={handleExperienceData}/>
     <Preview/>

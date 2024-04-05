@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
+import {  useEffect, useState } from "react";
 
-const PersonalInformation = () => {
+const PersonalInformation = ({handlePersonInfo}) => {
     const [personalInfo, setPersonalInfo] = useState({
         firstName: '',
         lastName: '',
@@ -11,11 +11,16 @@ const PersonalInformation = () => {
         email: '',
         description: '',
     })
+
     function handleInputData  (event, filed){
         const value = event.target.value;
          setPersonalInfo(prevState => ({...prevState,
             [filed]: value}))
     }
+    useEffect(() => {
+        handlePersonInfo(personalInfo)
+    }, [personalInfo])
+
 
   return (
     <div className="container">
