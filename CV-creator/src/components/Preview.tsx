@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState  } from "react";
 import CVAccount from "./CVAccount";
+
 
 const Preview = ({experienceData, educationData, personalnfo}) => {
     const [showAccount, setShowAccount] = useState(false)
