@@ -1,6 +1,11 @@
 import {  useEffect, useState } from "react";
+import { PersonalInfo } from "./TypeScript";
+type personalInfoProp = {
+    handlePersonInfo: (data:PersonalInfo) => void;
+}
 
-const PersonalInformation = ({handlePersonInfo}) => {
+
+const PersonalInformation = ({handlePersonInfo}:personalInfoProp) => {
     const [personalInfo, setPersonalInfo] = useState({
         firstName: '',
         lastName: '',
@@ -12,7 +17,7 @@ const PersonalInformation = ({handlePersonInfo}) => {
         description: '',
     })
 
-    function handleInputData  (event, filed){
+    function handleInputData  (event: React.ChangeEvent<HTMLInputElement>, filed: keyof PersonalInfo){
         const value = event.target.value;
          setPersonalInfo(prevState => ({...prevState,
             [filed]: value}))
@@ -47,7 +52,7 @@ const PersonalInformation = ({handlePersonInfo}) => {
       </div>
       <div className="form-group">
         <label htmlFor="phone">Phone Number:</label>
-        <input type="tel" id="phone" name="phone" className="form-input" onChange={(e) => handleInputData(e,  'phone')}/>
+        <input type="tel" id="phone" name="phone" className="form-input" onChange={(e) => handleInputData(e,  'phoneNumber')}/>
       </div>
       <div className="form-group">
         <label htmlFor="email">Email:</label>

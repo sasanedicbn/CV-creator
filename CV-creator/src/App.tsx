@@ -6,19 +6,29 @@ import Experience from './components/Experience'
 import Preview from './components/Preview'
 import Wrapper from './components/Wrapper'
 import { useState } from 'react'
+import { EducationData, ExperienceData, PersonalInfo } from './components/TypeScript'
 function App() {
-const [educationData, setEducationData] = useState([])
-const [experienceData, setExperienceData] = useState([])
-const [personalnfo, setPersonalInfo] = useState({})
+const [educationData, setEducationData] = useState<EducationData[]>([])
+const [experienceData, setExperienceData] = useState<ExperienceData[]>([])
+const [personalnfo, setPersonalInfo] = useState<PersonalInfo>({
+  firstName: '',
+  lastName: '',
+  title: '',
+  photo: '',
+  address: '',
+  phoneNumber: '',
+  email: '',
+  description: '',
+})
 
 
-const handleEducationData = (data) => {
+const handleEducationData = (data:EducationData[]) => {
   setEducationData(data)
 }
-const handleExperienceData = (data) => {
+const handleExperienceData = (data:ExperienceData[]) => {
   setExperienceData(data)
 }
-const handlePersonInfo = (data) => {
+const handlePersonInfo = (data: PersonalInfo) => {
   setPersonalInfo(data)
 }
   return (

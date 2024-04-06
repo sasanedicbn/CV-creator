@@ -1,4 +1,13 @@
 import {  useState } from "react";
+import { PersonalInfo } from "./TypeScript";
+
+type PersonalInfoComponent =(
+    position: string,
+    company: string,
+    city: string,
+    from: string,
+    to: sting,
+)
 
 const Experience = ({handleExperienceData}) => {
     const [experience, setExperience] = useState([{
@@ -18,11 +27,11 @@ const Experience = ({handleExperienceData}) => {
         to: '',
     }])
    }
-   function deleteExperience(index) {
+   function deleteExperience(index: number) {
     setExperience(experience.filter((_,i) => i !== index))
    }
 
-   const handleInputData = (event, index, field) => {
+   const handleInputData = (event: React.ChangeEvent<HTMLInputElement>, index:number, field: keyof PersonalInfo) => {
     const value = event.target.value;
     const updateExperience = [...experience]
      updateExperience[index][field] = value

@@ -26,7 +26,7 @@ const Education = ({handleEducationData}:any) => {
    setEducation(education.filter((_,i) => i !== index))
   }
   
-  function handleInputData(event:React.ChangeEvent, index:number, field:keyof EducationData){
+  function handleInputData(event:React.ChangeEvent<HTMLInputElement>, index:number, field:keyof EducationData){
     const value = event.target.value
     const updateEducation = [...education]
     updateEducation[index][field] = value
