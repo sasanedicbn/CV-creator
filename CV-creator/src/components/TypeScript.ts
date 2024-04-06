@@ -6,3 +6,20 @@ export type EducationData = {
     from: string;
     to: string;
   }
+ export type ExperienceData = {
+    position: string;
+    company: string;
+    city: string;
+    from: string;
+    to: string;
+  }
+ export type PersonalInfo = {
+    firstName: string;
+    lastName: string;
+    title: string;
+    photo: string;
+    address: string;
+    phoneNumber: string;
+    email: string;
+    description: string;
+  }
