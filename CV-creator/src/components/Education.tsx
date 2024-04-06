@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { EducationData } from "./TypeScript";
-
-const Education = ({handleEducationData}:any) => {
+type educationProps = {
+ handleEducationData: (data: EducationData[]) => void,
+}
+const Education = ({handleEducationData}:educationProps) => {
   const [education, setEducation] = useState([{
     universityName: '',
     city:'',

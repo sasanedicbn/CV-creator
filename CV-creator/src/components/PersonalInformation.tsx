@@ -19,6 +19,9 @@ const PersonalInformation = ({handlePersonInfo}:personalInfoProp) => {
 
     function handleInputData  (event: React.ChangeEvent<HTMLInputElement>, filed: keyof PersonalInfo){
         const value = event.target.value;
+        // za sliku ovo dole ne citam sliku sa event.trget.value
+        {console.log(URL.createObjectURL(event.target.files[0]))}
+
          setPersonalInfo(prevState => ({...prevState,
             [filed]: value}))
     }
@@ -26,6 +29,7 @@ const PersonalInformation = ({handlePersonInfo}:personalInfoProp) => {
         handlePersonInfo(personalInfo)
     }, [personalInfo])
     
+    // napraviti child komponentu za form-group da bude citljivije
 
   return (
     <div className="container">

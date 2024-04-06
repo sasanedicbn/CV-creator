@@ -1,15 +1,9 @@
 import {  useState } from "react";
-import { PersonalInfo } from "./TypeScript";
+import { ExperienceData } from "./TypeScript";
 
-type PersonalInfoComponent =(
-    position: string,
-    company: string,
-    city: string,
-    from: string,
-    to: sting,
-)
 
-const Experience = ({handleExperienceData}) => {
+// obrati pzanju ne poklapaju se ove unutra key sa onim u typescriptu
+const Experience = ({handleExperienceData}:any) => {
     const [experience, setExperience] = useState([{
         position: '',
         company: '',
@@ -31,7 +25,7 @@ const Experience = ({handleExperienceData}) => {
     setExperience(experience.filter((_,i) => i !== index))
    }
 
-   const handleInputData = (event: React.ChangeEvent<HTMLInputElement>, index:number, field: keyof PersonalInfo) => {
+   const handleInputData = (event: React.ChangeEvent<HTMLInputElement>, index:number, field: keyof ExperienceData) => {
     const value = event.target.value;
     const updateExperience = [...experience]
      updateExperience[index][field] = value
