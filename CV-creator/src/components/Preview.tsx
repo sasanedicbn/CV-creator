@@ -1,8 +1,14 @@
 import { useState  } from "react";
 import CVAccount from "./CVAccount";
+import { EducationData, ExperienceData, PersonalInfo } from "./TypeScript";
 
+type Props = {
+    experienceData: ExperienceData[],
+    educationData: EducationData[],
+    personalnfo: PersonalInfo,
+}
 
-const Preview = ({experienceData, educationData, personalnfo}) => {
+const Preview = ({experienceData, educationData, personalnfo}:Props) => {
     const [showAccount, setShowAccount] = useState(false)
     
     function showAccountComponent(){

@@ -1,12 +1,6 @@
 import { useState } from "react";
-type EducationData = {
-  universityName: string;
-  city: string;
-  degree: string;
-  subject: string;
-  from: string;
-  to: string;
-}
+import { EducationData } from "./TypeScript";
+
 const Education = ({handleEducationData}:any) => {
   const [education, setEducation] = useState([{
     universityName: '',
