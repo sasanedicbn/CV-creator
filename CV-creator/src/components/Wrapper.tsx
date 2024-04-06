@@ -1,5 +1,5 @@
 
-const Wrapper = ({children}) => {
+const Wrapper = ({children}:any) => {
     return(
         <div className='main-container'>
             {children}
