@@ -1,6 +1,16 @@
 import { useRef } from 'react';
-import { useReactToPrint } from 'react-to-print';
-const CVAccount = ({dataForAccount, removeAccountComponent}) => {
+import { useReactToPrint} from 'react-to-print';
+import { EducationData, ExperienceData, PersonalInfo } from './TypeScript';
+type CVAccountProps = {
+    dataForAccount: {
+      educationData: EducationData[];
+      experienceData: ExperienceData[];
+      personalInfo: PersonalInfo;
+    };
+    removeAccountComponent: () => void;
+  };
+  
+const CVAccount = ({dataForAccount, removeAccountComponent}:CVAccountProps) => {
     const printRef = useRef()
     const handlePrint = useReactToPrint({
         content: () => printRef.current,
