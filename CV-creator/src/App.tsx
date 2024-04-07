@@ -27,7 +27,13 @@ const [CV, setCV] = useState({
     from: '',
     to: '',
   }],
-  experience: [{}],
+  experience: [{
+    position: '',
+    company: '',
+    city: '',
+    from: '',
+    to: '',
+  }],
 })
 {console.log(CV)}
 const [educationData, setEducationData] = useState<EducationData[]>([])
@@ -56,9 +62,9 @@ const handlePersonInfo = (data: PersonalInfo) => {
   return (
     <Wrapper>
     <Header/>
-    <PersonalInformation handlePersonInfo={handlePersonInfo} setCV={setCV}/>
-    <Education handleEducationData={handleEducationData} setCV={setCV} CV={CV}/>
-    <Experience handleExperienceData={handleExperienceData}/>
+    <PersonalInformation setCV={setCV}/>
+    <Education setCV={setCV} CV={CV}/>
+    <Experience  setCV={setCV} CV={CV}/>
     <Preview  educationData={educationData} experienceData={experienceData} personalnfo={personalnfo} />
     </Wrapper>
   )

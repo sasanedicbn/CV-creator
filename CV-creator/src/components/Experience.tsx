@@ -1,72 +1,103 @@
-import {  useState } from "react";
-import { ExperienceData } from "./TypeScript";
+import FormGroup from "./FormGroup";
 
+const Experience = ({ setCV, CV }) => {
+  const addExperience = () => {
+    setCV(prevState => ({
+      ...prevState,
+      experience: [
+        ...prevState.experience,
+        {
+          position: '',
+          company: '',
+          city: '',
+          from: '',
+          to: ''
+        }
+      ]
+    }));
+  };
 
-// obrati pzanju ne poklapaju se ove unutra key sa onim u typescriptu
-const Experience = ({handleExperienceData}:any) => {
-    const [experience, setExperience] = useState([{
-        position: '',
-        company: '',
-        city: '',
-        from: '',
-        to: '',
-    }])
-    
-   function addExperience (){
-    setExperience([...experience, {
-        position: '',
-        company: '',
-        city: '',
-        from: '',
-        to: '',
-    }])
-   }
-   function deleteExperience(index: number) {
-    setExperience(experience.filter((_,i) => i !== index))
-   }
+  const deleteExperience = (index) => {
+    setCV(prevState => ({
+      ...prevState,
+      experience: prevState.experience.filter((_, i) => i !== index)
+    }));
+  };
 
-   const handleInputData = (event: React.ChangeEvent<HTMLInputElement>, index:number, field: keyof ExperienceData) => {
-    const value = event.target.value;
-    const updateExperience = [...experience]
-     updateExperience[index][field] = value
-    setExperience(updateExperience)
-    handleExperienceData(experience)
-   }
+  const handleInputData = (event, index) => {
+    const { value, name } = event.target;
+    setCV(prevState => ({
+      ...prevState,
+      experience: prevState.experience.map((exp, i) => {
+        if (index === i) {
+          return {
+            ...exp,
+            [name]: value
+          };
+        }
+        return exp;
+      })
+    }));
+  };
   
   return (
     <div className="container">
-       {experience.map((experience, index) => (
+      {CV.experience.map((experience, index) => (
         <div key={index}>
           <h2 className="form-title">Experience</h2>
           <div className="experience">
             <div className="experience-item">
-              <div className="form-group">
-                <label htmlFor="position">Position:</label>
-                <input type="text" id="position" name="position" value={experience.position} onChange={(e) => handleInputData(e, index, 'position')} className="form-input" />
-              </div>
-              <div className="form-group">
-                <label htmlFor="company">Company:</label>
-                <input type="text" id="company" name="company" value={experience.company} onChange={(e) => handleInputData(e, index, 'company')} className="form-input" />
-              </div>
-              <div className="form-group">
-                <label htmlFor="city">City:</label>
-                <input type="text" id="city" name="city" value={experience.city} onChange={(e) => handleInputData(e, index, 'city')} className="form-input" />
-              </div>
-              <div className="form-group">
-                <label htmlFor="from_date">From (dd/mm/yyyy):</label>
-                <input type="text" id="from_date" value={experience.from} onChange={(e) => handleInputData(e, index, 'from')} name="from_date" className="form-input" />
-              </div>
-              <div className="form-group">
-                <label htmlFor="to_date">To (dd/mm/yyyy):</label>
-                <input type="text" id="to_date" name="to_date" value={experience.to} onChange={(e) => handleInputData(e, index, 'to')} className="form-input" />
-              </div>
-              {index === 0 ? null : <button className="delete-button"  onClick={() => deleteExperience(index)}>Delete</button>}
+              <FormGroup
+                label="Position:"
+                id={`position-${index}`}
+                name="position"
+                type="text"
+                className="form-input"
+                value={experience.position}
+                onChange={(e) => handleInputData(e, index)}
+              />
+              <FormGroup
+                label="Company:"
+                id={`company-${index}`}
+                name="company"
+                type="text"
+                className="form-input"
+                value={experience.company}
+                onChange={(e) => handleInputData(e, index)}
+              />
+              <FormGroup
+                label="City:"
+                id={`city-${index}`}
+                name="city"
+                type="text"
+                className="form-input"
+                value={experience.city}
+                onChange={(e) => handleInputData(e, index)}
+              />
+              <FormGroup
+                label="From (dd/mm/yyyy):"
+                id={`from_date-${index}`}
+                name="from_date"
+                type="text"
+                className="form-input"
+                value={experience.from}
+                onChange={(e) => handleInputData(e, index)}
+              />
+              <FormGroup
+                label="To (dd/mm/yyyy):"
+                id={`to_date-${index}`}
+                name="to_date"
+                type="text"
+                className="form-input"
+                value={experience.to}
+                onChange={(e) => handleInputData(e, index)}
+              />
+              {index === 0 ? null : <button className="delete-button" onClick={() => deleteExperience(index)}>Delete</button>}
             </div>
           </div>
-          <button className="add-button" onClick={addExperience} >Add Experience</button>
-          </div>
-       ))}
-     
+        </div>
+      ))}
+      <button className="add-button" onClick={addExperience} >Add Experience</button>
     </div>
   );
 };

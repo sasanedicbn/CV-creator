@@ -11,8 +11,6 @@ const PersonalInformation = ({setCV}) => {
 
         setCV(prevCV => ({...prevCV, personalInformation: {...prevCV.personalInformation, [name]: value}}));
     }
-    
-    // napraviti child komponentu za form-group da bude citljivije
 
   return (
     <div className="container">
