@@ -1,7 +1,7 @@
 import FormGroup from "./FormGroup";
 import { typeCV } from "./TypeScript";
 
-const Experience = ({ setCV, CV }:{setCV:React.Dispatch<React.SetStateAction<typeCV>>}) => {
+const Experience = ({ setCV, CV }:{setCV:React.Dispatch<React.SetStateAction<typeCV>>, CV:any}) => {
   const addExperience = () => {
     setCV(prevState => ({
       ...prevState,
