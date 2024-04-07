@@ -53,7 +53,6 @@ const Experience = ({ setCV, CV }) => {
                 name="position"
                 type="text"
                 className="form-input"
-                value={experience.position}
                 onChange={(e) => handleInputData(e, index)}
               />
               <FormGroup
@@ -62,7 +61,6 @@ const Experience = ({ setCV, CV }) => {
                 name="company"
                 type="text"
                 className="form-input"
-                value={experience.company}
                 onChange={(e) => handleInputData(e, index)}
               />
               <FormGroup
@@ -71,7 +69,6 @@ const Experience = ({ setCV, CV }) => {
                 name="city"
                 type="text"
                 className="form-input"
-                value={experience.city}
                 onChange={(e) => handleInputData(e, index)}
               />
               <FormGroup
@@ -80,7 +77,6 @@ const Experience = ({ setCV, CV }) => {
                 name="from_date"
                 type="text"
                 className="form-input"
-                value={experience.from}
                 onChange={(e) => handleInputData(e, index)}
               />
               <FormGroup
@@ -89,7 +85,6 @@ const Experience = ({ setCV, CV }) => {
                 name="to_date"
                 type="text"
                 className="form-input"
-                value={experience.to}
                 onChange={(e) => handleInputData(e, index)}
               />
               {index === 0 ? null : <button className="delete-button" onClick={() => deleteExperience(index)}>Delete</button>}

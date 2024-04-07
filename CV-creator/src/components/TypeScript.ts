@@ -23,3 +23,8 @@ export type EducationData = {
     email: string;
     description: string;
   }
+  export type typeCV = {
+    personalInformation: PersonalInfo,
+    experience: ExperienceData[],
+    educationData: EducationData[]
+  }

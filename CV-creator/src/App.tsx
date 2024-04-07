@@ -6,35 +6,9 @@ import Experience from './components/Experience'
 import Preview from './components/Preview'
 import Wrapper from './components/Wrapper'
 import { useState } from 'react'
+import { typeCV } from './components/TypeScript'
 function App() {
-const [CV, setCV] = useState({
-  personalInformation:{
-    firstName: '',
-    lastName: '',
-    title: '',
-    photo: '',
-    address: '',
-    phoneNumber: '',
-    email: '',
-    description: '',
-  },
-  educationData: [{
-    universityName: '',
-    city:'',
-    degree:'',
-    subject: '',
-    from: '',
-    to: '',
-  }],
-  experience: [{
-    position: '',
-    company: '',
-    city: '',
-    from: '',
-    to: '',
-  }],
-})
-{console.log(CV)}
+const [CV, setCV] = useState<typeCV>({} as typeCV)
 
   return (
     <Wrapper>
@@ -48,3 +22,4 @@ const [CV, setCV] = useState({
 }
 
 export default App
+

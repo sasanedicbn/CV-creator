@@ -1,7 +1,8 @@
 import FormGroup from "./FormGroup";
+import { typeCV } from "./TypeScript";
 
 
-const PersonalInformation = ({setCV}) => {
+const PersonalInformation = ({setCV}:{setCV:  React.Dispatch<React.SetStateAction<typeCV>>}) => {
 
     function handleInputData  (event: React.ChangeEvent<HTMLInputElement>){
         const {value,name,files } = event.target;
@@ -15,8 +16,6 @@ const PersonalInformation = ({setCV}) => {
         }
        
         // za sliku ovo dole ne citam sliku sa event.trget.value
-
-       
     }
 
   return (
