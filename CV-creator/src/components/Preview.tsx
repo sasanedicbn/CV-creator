@@ -8,10 +8,7 @@ const Preview = ({CV}) => {
     function showAccountComponent(){
         setShowAccount(!showAccount)
     }
-    
-
-    // console.log(dataForAccount)
- 
+     
     return(
         <div className="container">
          <button className="preview-button" onClick={showAccountComponent}>Preview</button>
