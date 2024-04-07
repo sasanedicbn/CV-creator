@@ -19,10 +19,17 @@ const [CV, setCV] = useState({
     email: '',
     description: '',
   },
-  educationData: [{}],
+  educationData: [{
+    universityName: '',
+    city:'',
+    degree:'',
+    subject: '',
+    from: '',
+    to: '',
+  }],
   experience: [{}],
 })
-{'ovvoo je',console.log(CV)}
+{console.log(CV)}
 const [educationData, setEducationData] = useState<EducationData[]>([])
 const [experienceData, setExperienceData] = useState<ExperienceData[]>([])
 const [personalnfo, setPersonalInfo] = useState<PersonalInfo>({
@@ -50,7 +57,7 @@ const handlePersonInfo = (data: PersonalInfo) => {
     <Wrapper>
     <Header/>
     <PersonalInformation handlePersonInfo={handlePersonInfo} setCV={setCV}/>
-    <Education handleEducationData={handleEducationData}/>
+    <Education handleEducationData={handleEducationData} setCV={setCV} CV={CV}/>
     <Experience handleExperienceData={handleExperienceData}/>
     <Preview  educationData={educationData} experienceData={experienceData} personalnfo={personalnfo} />
     </Wrapper>

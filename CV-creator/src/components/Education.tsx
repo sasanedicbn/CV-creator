@@ -1,82 +1,111 @@
-import { useState } from "react";
-import { EducationData } from "./TypeScript";
-type educationProps = {
- handleEducationData: (data: EducationData[]) => void,
-}
-const Education = ({handleEducationData}:educationProps) => {
-  const [education, setEducation] = useState([{
-    universityName: '',
-    city:'',
-    degree:'',
-    subject: '',
-    from: '',
-    to: '',
-  }])
-  
+import FormGroup from "./FormGroup";
+const Education = ({setCV, CV}) => {
     
-  function addExperience (){
-   setEducation([...education, {
-    universityName: '',
-    city:'',
-    degree:'',
-    subject: '',
-    from: '',
-    to: '',
-   }])
-  }
-  function deleteExperience(index:number) {
-   setEducation(education.filter((_,i) => i !== index))
+  function addExperience() {
+    setCV(prevCV => ({
+      ...prevCV,
+      educationData: [
+        ...prevCV.educationData,
+        {
+          universityName: '',
+          city: '',
+          degree: '',
+          subject: '',
+          from: '',
+          to: '',
+        }
+      ]
+    }));
   }
   
-  function handleInputData(event:React.ChangeEvent<HTMLInputElement>, index:number, field:keyof EducationData){
-    const value = event.target.value
-    const updateEducation = [...education]
-    updateEducation[index][field] = value
-    setEducation(updateEducation)
-
-    handleEducationData(updateEducation)
+  function deleteExperience(index:number) {
+   setCV(prevCV => ({
+    ...prevCV,
+    educationData: prevCV.educationData.filter((_, i) => i !== index)
+   }))
   }
-
+  
+  // treci arg izbrisati
+  function handleInputData(event, index) {
+    const { name, value } = event.target;
+  
+    setCV(prevCV => ({
+      ...prevCV,
+      educationData: prevCV.educationData.map((edu, i) => {
+        if (i === index) {
+          return {
+            ...edu,
+            [name]: value
+          };
+        }
+        return edu;
+      })
+    }));
+  }
+  
   
   return (
     <div className="container">
-     {education.map((education, index) => (
+    {CV.educationData.map((education, index) => (
       <div key={index}>
-       <h2 className="form-title">Education</h2>
-       <div className="education">
-         <div className="education-item">
-           <div className="form-group">
-             <label htmlFor="university_name">University Name:</label>
-             <input type="text" id="university_name" name="university_name" value={education.universityName}  onChange={e => handleInputData(e, index, 'universityName' )} className="form-input" />
-           </div>
-           <div className="form-group">
-             <label htmlFor="city">City:</label>
-             <input type="text" id="city" name="city" value={education.city} onChange={e => handleInputData(e, index, 'city' )} className="form-input" />
-           </div>
-           <div className="form-group">
-             <label htmlFor="degree">Degree:</label>
-             <input type="text" id="degree" value={education.degree} onChange={e => handleInputData(e, index, 'degree' )} name="degree" className="form-input" />
-           </div>
-           <div className="form-group">
-             <label htmlFor="subject">Subject:</label>
-             <input type="text" id="subject" value={education.subject} name="subject" onChange={e => handleInputData(e, index, 'subject' )} className="form-input" />
-           </div>
-           <div className="form-group">
-             <label htmlFor="from_date">From (dd/mm/yyyy):</label>
-             <input type="text" id="from_date" value={education.from} name="from_date" onChange={e => handleInputData(e, index, 'from' )} className="form-input" />
-           </div>
-           <div className="form-group">
-             <label htmlFor="to_date">To (dd/mm/yyyy):</label>
-             <input type="text" id="to_date" value={education.to} onChange={e => handleInputData(e, index, 'to' )} name="to_date" className="form-input" />
-           </div>
-          {index === 0 ? null : <button className="delete-button" onClick={() => deleteExperience(index)} >Delete</button>}
-         </div>
-       </div>
-       <button className="add-button" onClick={addExperience} >Add Education</button>
+        <h2 className="form-title">Education</h2>
+        <div className="education">
+          <div className="education-item">
+            <FormGroup
+              label="University Name:"
+              id={`university_name_${index}`}
+              name="universityName"
+              type="text"
+              className="form-input"
+              onChange={e => handleInputData(e, index)}
+            />
+            <FormGroup
+              label="City:"
+              id={`city_${index}`}
+              name="city"
+              type="text"
+              className="form-input"
+              onChange={e => handleInputData(e, index)}
+            />
+            <FormGroup
+              label="Degree:"
+              id={`degree_${index}`}
+              name="degree"
+              type="text"
+              className="form-input"
+              onChange={e => handleInputData(e, index)}
+            />
+            <FormGroup
+              label="Subject:"
+              id={`subject_${index}`}
+              name="subject"
+              type="text"
+              className="form-input"
+              onChange={e => handleInputData(e, index)}
+            />
+            <FormGroup
+              label="From (dd/mm/yyyy):"
+              id={`from_date_${index}`}
+              name="from"
+              type="text"
+              className="form-input"
+              onChange={e => handleInputData(e, index)}
+            />
+            <FormGroup
+              label="To (dd/mm/yyyy):"
+              id={`to_date_${index}`}
+              name="to"
+              type="text"
+              className="form-input"
+              onChange={e => handleInputData(e, index)}
+            />
+            {index === 0 ? null : <button className="delete-button" onClick={() => deleteExperience(index)}>Delete</button>}
+          </div>
+        </div>
+        <button className="add-button" onClick={addExperience}>Add Education</button>
       </div>
-     ))}
-      
-    </div>
+    ))}
+  </div>
   );
 };
 

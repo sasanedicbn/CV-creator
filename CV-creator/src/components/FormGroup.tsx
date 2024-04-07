@@ -1,5 +1,5 @@
 
-const FormGroup = ({ label, id, name, type, className, onChange }) => {
+const FormGroup = ({ label, id, name, type, className, onChange,value }) => {
   return (
     <div className="form-group">
       <label htmlFor={id}>{label}</label>
