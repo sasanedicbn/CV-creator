@@ -9,12 +9,12 @@ const CVAccount = ({dataForAccount, removeAccountComponent}) => {
       });
 
     const {personalInformation } = dataForAccount
-    
+
     return(
         <div ref={printRef}>
         <div className="overlay"></div>
         <div className="cv-account">
-        <p className="profile-img"><strong>Photo:</strong> <img src={personalInformation?.photo} alt="Profile" /></p>
+        <p className="profile-img"> <img src={personalInformation?.photo} alt="Profile" /></p>
         <div className="personal-info">
           <h2>Personal Information</h2>
           <p><strong>First Name:</strong> {personalInformation?.firstName}</p>
