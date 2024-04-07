@@ -8,17 +8,16 @@ type Props = {
     personalnfo: PersonalInfo,
 }
 
-const Preview = ({experienceData, educationData, personalnfo}:Props) => {
+const Preview = ({CV}:Props) => {
     const [showAccount, setShowAccount] = useState(false)
     
     function showAccountComponent(){
         setShowAccount(!showAccount)
     }
-    const dataForAccount = {
-        experienceData: experienceData,
-        educationData: educationData,
-        personalnfo: personalnfo
-    }
+    const dataForAccount = CV
+
+    console.log(dataForAccount)
+ 
     return(
         <div className="container">
          <button className="preview-button" onClick={showAccountComponent}>Preview</button>
