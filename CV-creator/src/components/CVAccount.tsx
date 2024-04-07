@@ -1,41 +1,34 @@
 import { useRef } from 'react';
 import { useReactToPrint} from 'react-to-print';
-import { EducationData, ExperienceData, PersonalInfo } from './TypeScript';
-type CVAccountProps = {
-    dataForAccount: {
-      educationData: EducationData[];
-      experienceData: ExperienceData[];
-      personalInfo: PersonalInfo;
-    };
-    removeAccountComponent: () => void;
-  };
+
   
-const CVAccount = ({dataForAccount, removeAccountComponent}:CVAccountProps) => {
+const CVAccount = ({dataForAccount, removeAccountComponent}) => {
     const printRef = useRef()
     const handlePrint = useReactToPrint({
         content: () => printRef.current,
       });
-    const {educationData, experienceData, personalInfo } = dataForAccount
-    console.log(dataForAccount)
+
+    const {personalInformation } = dataForAccount
+    
     return(
         <div ref={printRef}>
         <div className="overlay"></div>
         <div className="cv-account">
-        <p className="profile-img"><strong>Photo:</strong> <img src={personalInfo?.photo} alt="Profile" /></p>
+        <p className="profile-img"><strong>Photo:</strong> <img src={personalInformation?.photo} alt="Profile" /></p>
         <div className="personal-info">
           <h2>Personal Information</h2>
-          <p><strong>First Name:</strong> {personalInfo?.firstName}</p>
-          <p><strong>Last Name:</strong> {personalInfo?.lastName}</p>
-          <p><strong>Title:</strong> {personalInfo?.title}</p>
-          <p><strong>Address:</strong> {personalInfo?.address}</p>
-          <p><strong>Phone Number:</strong> {personalInfo?.phoneNumber}</p>
-          <p><strong>Email:</strong> {personalInfo?.email}</p>
-          <p><strong>Description:</strong> {personalInfo?.description}</p>
+          <p><strong>First Name:</strong> {personalInformation?.firstName}</p>
+          <p><strong>Last Name:</strong> {personalInformation?.lastName}</p>
+          <p><strong>Title:</strong> {personalInformation?.title}</p>
+          <p><strong>Address:</strong> {personalInformation?.address}</p>
+          <p><strong>Phone Number:</strong> {personalInformation?.phoneNumber}</p>
+          <p><strong>Email:</strong> {personalInformation?.email}</p>
+          <p><strong>Description:</strong> {personalInformation?.description}</p>
         </div>
         
         <div className="education-info">
           <h2>Education</h2>
-          {educationData.map((edu, index) => (
+          {dataForAccount.educationData.map((edu, index) => (
             <div key={index}>
               <p><strong>University Name:</strong> {edu.universityName}</p>
               <p><strong>City:</strong> {edu.city}</p>
@@ -49,7 +42,7 @@ const CVAccount = ({dataForAccount, removeAccountComponent}:CVAccountProps) => {
   
         <div className="experience-info">
           <h2>Experience</h2>
-          {experienceData.map((exp, index) => (
+          {dataForAccount.experience.map((exp, index) => (
             <div key={index}>
               <p><strong>Position:</strong> {exp.position}</p>
               <p><strong>Company:</strong> {exp.company}</p>
