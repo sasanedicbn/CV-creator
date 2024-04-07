@@ -1,6 +1,7 @@
 import FormGroup from "./FormGroup";
+import { typeCV } from "./TypeScript";
 
-const Experience = ({ setCV, CV }) => {
+const Experience = ({ setCV, CV }:{setCV:React.Dispatch<React.SetStateAction<typeCV>>}) => {
   const addExperience = () => {
     setCV(prevState => ({
       ...prevState,
@@ -17,14 +18,14 @@ const Experience = ({ setCV, CV }) => {
     }));
   };
 
-  const deleteExperience = (index) => {
+  const deleteExperience = (index:number) => {
     setCV(prevState => ({
       ...prevState,
       experience: prevState.experience.filter((_, i) => i !== index)
     }));
   };
 
-  const handleInputData = (event, index) => {
+  const handleInputData = (event:any, index:number) => {
     const { value, name } = event.target;
     setCV(prevState => ({
       ...prevState,
@@ -42,7 +43,7 @@ const Experience = ({ setCV, CV }) => {
   
   return (
     <div className="container">
-      {CV.experience.map((experience, index) => (
+      {CV.experience.map((experience:string, index:number) => (
         <div key={index}>
           <h2 className="form-title">Experience</h2>
           <div className="experience">
