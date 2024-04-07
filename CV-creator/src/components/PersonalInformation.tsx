@@ -1,10 +1,7 @@
-import { PersonalInfo } from "./TypeScript";
-type personalInfoProp = {
-    handlePersonInfo: (data:PersonalInfo) => void;
-}
+import FormGroup from "./FormGroup";
 
 
-const PersonalInformation = ({handlePersonInfo, setCV}:personalInfoProp) => {
+const PersonalInformation = ({setCV}) => {
 
     function handleInputData  (event: React.ChangeEvent<HTMLInputElement>){
         const value = event.target.value;
@@ -20,38 +17,14 @@ const PersonalInformation = ({handlePersonInfo, setCV}:personalInfoProp) => {
   return (
     <div className="container">
       <h2 className="form-title">Personal Information</h2>
-      <div className="form-group">
-        <label htmlFor="first_name">First Name:</label>
-        <input type="text" id="first_name" name="first_name" className="form-input" onChange={(e) => handleInputData(e)}/>
-      </div>
-      <div className="form-group">
-        <label htmlFor="last_name">Last Name:</label>
-        <input type="text" id="last_name" name="last_name" className="form-input"  onChange={(e) => handleInputData(e)}/>
-      </div>
-      <div className="form-group">
-        <label htmlFor="title">Title:</label>
-        <input type="text" id="title" name="title" className="form-input"  onChange={(e) => handleInputData(e)}/>
-      </div>
-      <div className="form-group">
-        <label htmlFor="photo">Photo:</label>
-        <input type="file" id="photo" name="photo" className="form-input" onChange={(e) => handleInputData(e)} />
-      </div>
-      <div className="form-group">
-        <label htmlFor="address">Address:</label>
-        <input type="text" id="address" name="address" className="form-input" onChange={(e) => handleInputData(e)} />
-      </div>
-      <div className="form-group">
-        <label htmlFor="phone">Phone Number:</label>
-        <input type="tel" id="phone" name="phone" className="form-input" onChange={(e) => handleInputData(e)}/>
-      </div>
-      <div className="form-group">
-        <label htmlFor="email">Email:</label>
-        <input type="email" id="email" name="email" className="form-input" onChange={(e) => handleInputData(e)} />
-      </div>
-      <div className="form-group">
-        <label htmlFor="description">Description:</label>
-        <input type="text" id="title" name="title" className="form-input" onChange={(e) => handleInputData(e)}/>
-      </div>
+      <FormGroup label="First Name:" id="first_name" name="first_name" type="text" className="form-input" onChange={handleInputData} />
+      <FormGroup label="Last Name:" id="last_name" name="last_name" type="text" className="form-input" onChange={handleInputData} />
+      <FormGroup label="Title:" id="title" name="title" type="text" className="form-input" onChange={handleInputData} />
+      <FormGroup label="Photo:" id="photo" name="photo" type="file" className="form-input" onChange={handleInputData} />
+      <FormGroup label="Address:" id="address" name="address" type="text" className="form-input" onChange={handleInputData} />
+      <FormGroup label="Phone Number:" id="phone" name="phone" type="tel" className="form-input" onChange={handleInputData} />
+      <FormGroup label="Email:" id="email" name="email" type="email" className="form-input" onChange={handleInputData} />
+      <FormGroup label="Description:" id="description" name="description" type="text" className="form-input" onChange={handleInputData} />
     </div>
   );
 };
