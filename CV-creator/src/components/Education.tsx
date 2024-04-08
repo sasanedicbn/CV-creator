@@ -1,5 +1,6 @@
 import FormGroup from "./FormGroup";
-const Education = ({setCV, CV}) => {
+import { typeCV } from "./TypeScript";
+const Education = ({setCV, CV}:{setCV:React.Dispatch<React.SetStateAction<typeCV>>, CV:any}) => {
     
   function addExperience() {
     setCV(prevCV => ({
@@ -25,8 +26,8 @@ const Education = ({setCV, CV}) => {
    }))
   }
   
-  // treci arg izbrisati
-  function handleInputData(event, index) {
+
+  function handleInputData(event: React.ChangeEvent<HTMLInputElement>, index:number) {
     const { name, value } = event.target;
   
     setCV(prevCV => ({
@@ -46,7 +47,7 @@ const Education = ({setCV, CV}) => {
   
   return (
     <div className="container">
-    {CV.educationData.map((education, index) => (
+    {CV.educationData.map((education:any, index:number) => (
       <div key={index}>
         <h2 className="form-title">Education</h2>
         <div className="education">
